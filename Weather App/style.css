@@ -12,14 +12,15 @@ body {
     color: white;
 }
 
-form {
+.form {
     margin: 60px;
     font-size: 3em;
 }
 
 input {
     height: 30px;
-    width: 400px;
+    width: 40vw;
+    min-width: 120px;
     padding: 0 15px;
 
     outline: none;
@@ -39,4 +40,57 @@ button {
     border-radius: 3px;
 
     background: rgb(50, 218, 50);
+}
+
+
+#weatherCard {
+    margin: 60px;
+
+    height: 230px;
+    width: 150px;
+    background: rgb(50, 218, 50);
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#cardHeader {
+    display: flex;
+
+    align-items: center;
+
+}
+
+#weatherCard img {
+    width: 55px;
+    height: 30px;
+}
+
+#weatherCard p {
+    font-size: 1.2em;
+}
+
+
+#cardBody {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5em;
+}
+
+
+#cardFooter {
+    font-size: 0.85em;
+    text-align: center;
+}
+
+#precipitation {
+    color: gold; /* aqua - chuva */
 }
