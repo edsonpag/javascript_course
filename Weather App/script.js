@@ -31,6 +31,7 @@ async function getData() {
 
         const { WeatherText, WeatherIcon, HasPrecipitation, IsDayTime, Temperature } = data[0]
 
+        console.log(data[0])
         displayWeatherData(WeatherText, WeatherIcon, HasPrecipitation, IsDayTime, Temperature)
     }
     catch(err) {
@@ -40,5 +41,39 @@ async function getData() {
 
 async function displayWeatherData(WeatherText, WeatherIcon, HasPrecipitation, IsDayTime, Temperature) {
     const weatherCard = document.getElementById("weatherCard")
+    const weatherTextElement = document.getElementById("weatherText")
+    const weatherIconElement = document.getElementById("weatherIcon")
+    const locationNameElement = document.getElementById("locationName")
+    const temperatureElement = document.getElementById("temperature")
+    const precipitationElement = document.getElementById("precipitation")
+
+
+    weatherCard.style.display = "flex"
+    weatherTextElement.textContent = WeatherText
+    weatherIconElement.src = `weather-icons/${WeatherIcon}.png`
+    locationNameElement.textContent = cityName.value
+    temperatureElement.textContent = Temperature.Metric.Value + "ºC"
+
+    if(Temperature.Metric.Value > 25) {
+        temperatureElement.style.color = "orange"
+    } else if (Temperature.Metric.Value > 18 && Temperature.Metric.Value <= 25) {
+        temperatureElement.style.color = "yellow"
+    } else {
+        temperatureElement.style.color = "aqua"
+    }
+
+    if(HasPrecipitation) {
+        precipitationElement.textContent = "Sim"
+        precipitationElement.style.color = "aqua"
+    } else {
+        precipitationElement.textContent = "Não"
+        precipitationElement.style.color = "goldenrod"
+    }
+
+    if(IsDayTime) {
+        weatherCard.style.background = "rgb(50, 218, 50)"
+    } else {
+        weatherCard.style.background = "#333"
+    }
 
 }

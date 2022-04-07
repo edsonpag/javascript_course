@@ -13,23 +13,23 @@
             <h2>Weather App</h2>
             <input type="text" name="cityName" id="cityName" placeholder="Joinville" autocomplete="on" autofocus required>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" onclick="getData()">Enviar</button>
         </div>
         
         <div id="weatherCard">
             <div id="cardHeader">
-                <img src="weather-icons/1.png" alt="icon" width="75" height="45">
-                <p>Cloudy</p>
+                <img src="" alt="weather-icon" title="Icone do tempo" width="75" height="45" id="weatherIcon">
+                <p id="weatherText"></p>
             </div>
 
             <div id="cardBody">
-                <!-- Adicionar o nome da cidade -->
-                <h1>28ºC</h1>
+                <p id="locationName"></p>
+                <h1 id="temperature"></h1>
             </div>
 
             <div id="cardFooter">
                 <p>Tem Precipitação: </p>
-                <p id="precipitation">Não</p>
+                <p id="precipitation"></p>
             </div>
 
         </div>
