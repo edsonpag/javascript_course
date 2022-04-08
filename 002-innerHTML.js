@@ -1,0 +1,1 @@
+document.getElementById("card").innerHTML = "<h1>Hello World</h1>" // Altera o HTML do elemento com id card

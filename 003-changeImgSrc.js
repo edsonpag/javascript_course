@@ -1,0 +1,1 @@
+document.getElementById("myImage").src = "public/img1.png"

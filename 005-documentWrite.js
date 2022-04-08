@@ -1,0 +1,1 @@
+document.write("Hello Wolrd") // Escreve no HTML "Hello World" - Apaga todo o HTML existente

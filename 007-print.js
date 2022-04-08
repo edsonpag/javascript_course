@@ -1,0 +1,1 @@
+print() // Imprimi a pagina atual

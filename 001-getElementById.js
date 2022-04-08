@@ -1,0 +1,1 @@
+document.getElementById("card") // Seleciona o elemento com id card
