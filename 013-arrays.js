@@ -3,9 +3,6 @@ const ages = [18, 20, 55, 21, 21]
 
 Array.isArray(names) // se for um array retorna true, caso ñ retorna false
 names.length // retorna o tamanho do array
-names.forEach((name) => { // para cada nome no array de nomes, exiba no console
-    console.log(name)
-})
 names.toString() // retorna uma string, seperando os elementos por virgula. Ex: Ana,Edson,Neuza
 names.join(" ") // retorna uma string, seperando por espaços (você pode definir qualquer separador)
 names.push("Arivaldo") // adiciona um novo elemento no final do array
@@ -24,3 +21,48 @@ names.sort(function(a, b) {
 // ordenação de números. Se o resultado é negativo "a" irá primeiro. Se o resultdo é positivo significa que "b" é menor, por isso vai primeiro.
 Math.max.apply(null, ages) // retorna o valor maximo de um array
 Math.min.apply(null, ages) // retorna o valor minimo de um array
+
+names.forEach((name) => {
+    console.log(name)
+})
+// para cada nome no array de nomes, exibe no console
+
+ages.map((age) => {
+    return age =+ 1
+})
+// retorna um novo array, sem modificar o array principal
+
+ages.filter((age) => {
+    return age > 20
+})
+// retorna um novo array, com todos os elementos que retornarem true no teste
+
+ages.reduce((total, age) => {
+    return total + age
+})
+// retorna um novo array reduzido a 1 elemento. O primeiro argumento será retornado no final
+
+ages.every((age) => {
+    return age > 18
+})
+// retorna true ou false, se todos os elementos do array passaram no teste
+
+ages.some((age) => {
+    return age === 18
+})
+// retorna true ou false, se pelo menos 1 dos elementos passarem no teste
+
+names.indexOf("Edson") // procura por um elemento no array e retorna a sua primeira posição (-1 caso ñ encontre). Usar lastIndexOf() para enconrtar a ultima posição
+
+ages.find((age) => {
+    return age > 20
+})
+// retorna o primeiro elemento do array que passar no teste
+
+ages.findIndex((age) => {
+    return age > 20
+})
+// retorna o index do primeiro elemento que passar no teste
+
+Array.from("Edson") // transforma o valor passado em um array. Ex: ['E', 'd', 's', 'o', 'n']
+names.includes("Claudio") // retorna true ou false, se encontrar o elemento no array
