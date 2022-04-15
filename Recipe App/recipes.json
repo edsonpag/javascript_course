@@ -1,0 +1,23 @@
+{
+    "recipes": [
+        {
+            "id": 0,
+            "title": "Arroz e Feijão",
+            "meal_type": "Almoço",
+            "number_of_people_it_serves": 5,
+            "difficulty": 0,
+            "ingredients": ["Arroz", "Feijão"],
+            "preparation_steps": ["Cozinha o arroz", "Cozinha o Feijão"]
+        },
+
+        {
+            "id": 1,
+            "title": "Ovo Frito",
+            "meal_type": "Lanche",
+            "number_of_people_it_serves": 1,
+            "difficulty": 2,
+            "ingredients": ["Ovo"],
+            "preparation_steps": ["Frita o ovo"]
+        }
+    ]
+}
