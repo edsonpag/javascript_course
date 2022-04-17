@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+body {
+    background: whitesmoke;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > h1 {
+    font-size: 4em;
+}
+
+.container > p {
+    font-size: 4em;
+}
+
+.btns-container {
+    margin-top: 10px;
+}
+
+.btn {
+    border: 2px solid black;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    margin: 0 5px;
+    cursor: pointer;
+}
