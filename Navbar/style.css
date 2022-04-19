@@ -72,6 +72,7 @@ nav {
 }
 
 .nav-active {
+    transition: transform 1s ease;
     transform: translateX(0px);
 }
 
