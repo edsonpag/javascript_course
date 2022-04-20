@@ -37,10 +37,10 @@ ages.filter((age) => {
 })
 // retorna um novo array, com todos os elementos que retornarem true no teste
 
-ages.reduce((total, age) => {
-    return total + age
-})
-// retorna um novo array reduzido a 1 elemento. O primeiro argumento será retornado no final
+ages.reduce((initValue, age) => {
+    return initValue + age
+}, 1)
+// Nesse ex o initValue inicia com 1, a cada iteração é somado a age. Após todas as iterações é retornado o valor final de initValue
 
 ages.every((age) => {
     return age > 18
