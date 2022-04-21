@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Video Project</title>
+</head>
+<body>
+
+    <div class="preloader-container">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <header>
+        <!-- controls -->
+        <video muted autoplay loop class="video-container">
+            <source src="./public/video.mp4" type="video/mp4">
+        </video>
+
+        <h1>Video Project</h1>
+    </header>
+    
+
+    <button class="switch-btn">
+        <span>play</span>
+        <span>pause</span>
+        <span class="switch">
+        </span>
+    </button>
+
+
+    <script src="app.js"></script>
+</body>
+</html>

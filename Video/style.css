@@ -1,0 +1,158 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.preloader-container {
+    z-index: 999;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.preloader {
+    width: 80px;
+    display: flex;
+    flex-wrap: wrap;
+
+    animation: rotate 1s ease 0s infinite normal;
+}
+
+.preloader span {
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+}
+
+.preloader span:nth-child(1) {
+    background: red;
+    border-radius: 50% 50% 0% 50%;
+    animation: scale 1s ease 0.14s infinite normal;
+}
+
+.preloader span:nth-child(2) {
+    background: blue;
+    border-radius: 50% 50% 50% 0%;
+    animation: scale 1s ease 0.28s infinite normal;
+}
+
+.preloader span:nth-child(3) {
+    background: yellow;
+    border-radius: 50% 0% 50% 50%;
+    animation: scale 1s ease 0.42s infinite normal;
+}
+
+.preloader span:nth-child(4) {
+    background: green;
+    border-radius: 0% 50% 50% 50%;
+    animation: scale 1s ease 0.57s infinite normal;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes scale {
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -2;
+}
+
+h1 {
+    color: white;
+    letter-spacing: 4px;
+    font-size: 56px;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header::after {
+    content: "";
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: -1;
+
+    background: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+}
+
+.switch-btn {
+    position: absolute;
+    top: 80vh;
+    left: 10vw;
+
+    width: 140px;
+    height: 40px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.switch {
+    background: blue;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 70px;
+    height: 40px;
+    border-radius: 8px;
+
+    transition: all 0.5s ease;
+}
+
+.slide .switch {
+    left: 50%
+}
