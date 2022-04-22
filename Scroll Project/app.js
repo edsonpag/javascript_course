@@ -1,6 +1,11 @@
 const burgerMenu = document.querySelector('.burger-menu')
 const navbarLinks = document.querySelector('.links')
 const allLinks = document.querySelectorAll('.links li')
+const headerEl = document.querySelector('header')
+const arrowUpEl = document.querySelector('.arrow-up-container')
+const dateEl = document.querySelector('.date')
+
+dateEl.textContent = new Date().getFullYear()
 
 burgerMenu.addEventListener('click', (event) => {
 
@@ -14,4 +19,25 @@ burgerMenu.addEventListener('click', (event) => {
             item.style.animation = ''
         }
     })
+})
+
+window.addEventListener('scroll', (event) => {
+    const scrollHeight = window.scrollY
+    const navbarHeight = headerEl.getBoundingClientRect().height
+
+    // fixed navbar
+    if(scrollHeight > navbarHeight) {
+        headerEl.classList.add('fixed-navbar')
+    } 
+    else {
+        headerEl.classList.remove('fixed-navbar')
+    }
+
+    // fixed arrow up
+    if(scrollHeight > 350) {
+        arrowUpEl.style.visibility = "visible"
+    } 
+    else {
+        arrowUpEl.style.visibility = "hidden"
+    }
 })

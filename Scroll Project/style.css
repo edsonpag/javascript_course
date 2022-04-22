@@ -8,7 +8,14 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.background-image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+
     background: url('./hero-bcg.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -71,6 +78,15 @@ a {
     height: 3px;
     background: black;
     margin: 4px;
+}
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    box-shadow: 0.2px 0.2px 2px black;
 }
 
 @media screen and (max-width: 768px) {
@@ -146,7 +162,6 @@ a {
 main {
     color: white;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,4 +196,68 @@ main p {
     font-size: 14px;
 
     cursor: pointer;
+}
+
+section {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+    height: 100vh;   
+}
+
+section > h1 {
+    letter-spacing: 5px;
+}
+
+h1 > span {
+    color: blue;
+    letter-spacing: 5px;
+}
+
+footer {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    color: white;
+    background: #333;
+}
+
+.arrow-up-container {
+    background: rgb(0, 255, 136);
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    animation: pulse 1.5s ease 0s infinite normal;
+    cursor: pointer;
+
+    visibility: hidden;
+}
+
+.arrow-up-container i {
+    font-weight: bold;
+    color: white;
+    font-size: 28px;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }
