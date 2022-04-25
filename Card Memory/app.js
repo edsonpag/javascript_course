@@ -51,18 +51,39 @@ const app = () => {
 app()
 
 const randomSequenceOfNumbers = getRandomSequenceOfNumbers()
-
 const cardsEl = document.querySelectorAll('.card')
 
+let selectedCards = []
+let selectedCardsId = []
+
 cardsEl.forEach((card, index) => {
-    card.addEventListener('click', (event) => {
+    card.addEventListener('click', async (event) => {
         const selectedCard = randomSequenceOfNumbers[index]
 
         card.innerHTML = `
-            <div class="card">
-                <img src=${cards[selectedCard]} class="img-card">
-            </div>
+            <img src=${cards[selectedCard]} class="img-card" data-card-id=${selectedCard}>
         `
+
+        selectedCards.push(card)
+        selectedCardsId.push(selectedCard)
+        
+        if(selectedCards.length === 2) {
+            await setTimeout(async () => {
+                await hiddenCards()
+            }, 50)
+            
+        }
+        
     })
 })
 
+function hiddenCards() {
+    if(selectedCardsId[0] !== selectedCardsId[1]) {
+        for(i of selectedCards) {
+            i.innerHTML = `<img src="./cards/facedown.jpg" class="img-card">`
+        }
+    }
+
+    selectedCards = []
+    selectedCardsId = []
+}
