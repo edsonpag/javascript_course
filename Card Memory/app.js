@@ -1,11 +1,41 @@
 let cards_length = 6
-let maxTime = 0
-let gameover = false
 const cards = []
 let allCardsShown = 0
+let selectedCards = []
+let selectedCardsId = []
+
+let maxTime = 0
+let gameover = false
 
 const mainEl = document.querySelector('main')
+const timerEl = document.querySelector('.timer')
 
+function timer() {
+    let minutes = 0, seconds = 0, ms = 0
+
+    const time = setInterval(() => {
+        ms = seconds * 1000
+        seconds++
+
+        if(seconds < 10) {
+            timerEl.innerHTML = `0${minutes}:0${seconds}`
+        } else {
+            timerEl.innerHTML = `0${minutes}:${seconds}`
+        }
+        
+        if(seconds === 60) {
+            minutes++
+            seconds = 0
+        }
+
+        if(ms >= maxTime) {
+            clearInterval(time)
+            gameover = true
+            isGameOver()
+        }
+
+    }, 1000)
+}
 
 function difficulty() {
     const selectEl = document.querySelector('#difficulty')
@@ -41,54 +71,6 @@ function displayCards() {
     }
 }
 
-function getRandomSequenceOfNumbers() {
-    const numbers = []
-    let card = 0
-    for(let i = 0; i < cards_length * 2; i++) {
-        numbers.push(card)
-        card++
-        if(card === cards_length) {
-            card = 0
-        }
-    }
-
-    const randomSequenceOfNumbers = []
-    
-    while(numbers.length !== 0) {
-        const randomNumber = Math.floor(Math.random() * numbers.length)
-    
-        randomSequenceOfNumbers.push(numbers[randomNumber])
-        numbers.splice(randomNumber, 1)
-    }
-
-    return randomSequenceOfNumbers
-}
-
-function startGame() {
-    const startBtn = document.querySelector('.startBtn')
-    const resetBtn = document.querySelector('.resetBtn')
-
-    startBtn.addEventListener('click', (event) => {
-        startBtn.style.display = 'none'
-        resetBtn.style.display = 'block'
-
-        timer()
-        difficulty()
-        getCards()
-        displayCards()
-        addEventListenerToCards()
-    })
-
-    resetBtn.addEventListener('click', (event) => {
-        document.location.reload()
-    })
-}
-
-
-
-let selectedCards = []
-let selectedCardsId = []
-
 function addEventListenerToCards() {
     const randomSequenceOfNumbers = getRandomSequenceOfNumbers()
     const cardsEl = document.querySelectorAll('.card')
@@ -121,6 +103,30 @@ function addEventListenerToCards() {
     })
 }
 
+function getRandomSequenceOfNumbers() {
+    const numbers = []
+    let card = 0
+    for(let i = 0; i < cards_length * 2; i++) {
+        numbers.push(card)
+        card++
+        if(card === cards_length) {
+            card = 0
+        }
+    }
+
+    const randomSequenceOfNumbers = []
+    
+    while(numbers.length !== 0) {
+        const randomNumber = Math.floor(Math.random() * numbers.length)
+    
+        randomSequenceOfNumbers.push(numbers[randomNumber])
+        numbers.splice(randomNumber, 1)
+    }
+
+    return randomSequenceOfNumbers
+}
+
+
 function hiddenCards() {
     if(selectedCardsId[0] !== selectedCardsId[1]) {
         for(i of selectedCards) {
@@ -137,36 +143,6 @@ function hiddenCards() {
     selectedCardsId = []
 }
 
-const timerEl = document.querySelector('.timer')
-
-function timer() {
-    let minutes = 0, seconds = 0, ms = 0
-
-    const time = setInterval(() => {
-        ms = seconds * 1000
-        seconds++
-
-        if(seconds < 10) {
-            timerEl.innerHTML = `0${minutes}:0${seconds}`
-        } else {
-            timerEl.innerHTML = `0${minutes}:${seconds}`
-        }
-        
-        if(seconds === 60) {
-            minutes++
-            seconds = 0
-        }
-
-        if(ms >= maxTime) {
-            clearInterval(time)
-            gameover = true
-            isGameOver()
-        }
-
-    }, 1000)
-}
-
-
 function isGameOver() {
     if(allCardsShown === cards.length) {
         window.alert('Você ganhou com o tempo de ' + timerEl.innerHTML)
@@ -178,6 +154,25 @@ function isGameOver() {
     }
 }
 
+function startGame() {
+    const startBtn = document.querySelector('.startBtn')
+    const resetBtn = document.querySelector('.resetBtn')
+
+    startBtn.addEventListener('click', (event) => {
+        startBtn.style.display = 'none'
+        resetBtn.style.display = 'block'
+
+        timer()
+        difficulty()
+        getCards()
+        displayCards()
+        addEventListenerToCards()
+    })
+
+    resetBtn.addEventListener('click', (event) => {
+        document.location.reload()
+    })
+}
 
 startGame()
-// O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage caso o usuario recarregue a pagina
+// O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage
