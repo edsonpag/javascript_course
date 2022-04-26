@@ -66,9 +66,68 @@ main {
     height: 23px;
 }
 
+.stats {
+    width: 30px;
+    height: 30px;
+    font-size: 50px;
+    color: white;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.player-stats {
+    height: 100vh;
+    width: 60vw;
+    background-color: rgb(70, 69, 69);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: white;
+
+    transform: translateX(-100%);
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.player-data {
+    letter-spacing: 2px;
+    display: flex;
+    height: 50vh;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+.player-data h2 {
+    text-align: center;
+}
+
+.player-times {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width: 768px) {
     main {
         grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .player-data {
+        flex-direction: column;
     }
 }
 

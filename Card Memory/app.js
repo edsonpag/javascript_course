@@ -7,6 +7,13 @@ let selectedCardsId = []
 let maxTime = 0
 let gameover = false
 
+const localStorageVictories = JSON.parse(localStorage.getItem('victories'))
+let victories = localStorage.getItem('victories') !== null ? localStorageVictories : 0
+
+const localStorageDefeats = JSON.parse(localStorage.getItem('defeats'))
+let defeats = localStorage.getItem('defeats') !== null ? localStorageDefeats : 0
+
+
 const mainEl = document.querySelector('main')
 const timerEl = document.querySelector('.timer')
 
@@ -50,7 +57,7 @@ function difficulty() {
         cards_length = 8
     } else {
         cards_length = 10
-        maxTime = 30000
+        maxTime = 50000
     }
 }
 
@@ -134,7 +141,6 @@ function hiddenCards() {
         }
     } else {
         allCardsShown++
-        console.log(allCardsShown)
     }
 
     isGameOver()
@@ -145,13 +151,51 @@ function hiddenCards() {
 
 function isGameOver() {
     if(allCardsShown === cards.length) {
+        victories++
+        saveTolocalStorage()
         window.alert('Você ganhou com o tempo de ' + timerEl.innerHTML)
         document.location.reload()
     }
     else if(gameover) {
+        defeats++
+        saveTolocalStorage()
         window.alert('Você perdeu')
         document.location.reload()
     }
+}
+
+function saveTolocalStorage() {
+    localStorage.setItem('victories', victories)
+    localStorage.setItem('defeats', defeats)
+}
+
+function showStats() {
+    const statsBtn = document.querySelector('.stats')
+    const playerStatsEl = document.querySelector('.player-stats')
+
+
+    statsBtn.addEventListener('click', (event) => {
+        playerStatsEl.style.transition = 'transform 1s ease'
+        playerStatsEl.style.transform = 'translateX(0)'
+    })
+}
+
+function closeStats() {
+    const closeBtn = document.querySelector('.close-btn')
+    const playerStatsEl = document.querySelector('.player-stats')
+
+    closeBtn.addEventListener('click', (event) => {
+        playerStatsEl.style.transition = 'transform 1s ease'
+        playerStatsEl.style.transform = 'translateX(-100%)'
+    })
+}
+
+function showVictoriesAndDefeats() {
+    const victoriesEl = document.querySelector('.victories')
+    const defeatsEl = document.querySelector('.defeats')
+
+    victoriesEl.insertAdjacentHTML('beforeend', `<h2>${victories}</h2>`)
+    defeatsEl.insertAdjacentHTML('beforeend', `<h2>${defeats}</h2>`)
 }
 
 function startGame() {
@@ -175,4 +219,8 @@ function startGame() {
 }
 
 startGame()
+showStats()
+closeStats()
+showVictoriesAndDefeats()
+
 // O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage
