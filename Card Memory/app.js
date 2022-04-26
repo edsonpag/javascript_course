@@ -56,14 +56,20 @@ const cardsEl = document.querySelectorAll('.card')
 let selectedCards = []
 let selectedCardsId = []
 
-const startBtn = document.querySelector('button')
+const startBtn = document.querySelector('.startBtn')
+const resetBtn = document.querySelector('.resetBtn')
 
 startBtn.addEventListener('click', (event) => {
     timer()
+
+    startBtn.style.display = 'none'
+    resetBtn.style.display = 'block'
+
     cardsEl.forEach((card, index) => {
         card.addEventListener('click', async (event) => {
 
             if(card.firstElementChild.getAttribute('data-card-id')) return
+            if(selectedCards.length === 2) return
 
             const selectedCard = randomSequenceOfNumbers[index]
     
@@ -77,11 +83,15 @@ startBtn.addEventListener('click', (event) => {
             if(selectedCards.length === 2) {
                 await setTimeout(async () => {
                     await hiddenCards()
-                }, 50)
+                }, 400)
                 
             }
         })
     })
+})
+
+resetBtn.addEventListener('click', (event) => {
+    document.location.reload()
 })
 
 function hiddenCards() {
@@ -96,6 +106,7 @@ function hiddenCards() {
 
     if(isGameOver()) {
         window.alert('Você ganhou com o tempo de ' + timerEl.innerHTML)
+        document.location.reload()
     }
 
     selectedCards = []
@@ -134,6 +145,5 @@ function isGameOver() {
     }
 }
 
-// clicando em ok o jogador inicia um novo game
 // Adicionar niveis de dificuldade (facil, medio e hard). Quanto maior a dificuldade, menos tempo ele tem para completar e aumentar o número de cards
 // O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage caso o usuario recarregue a pagina
