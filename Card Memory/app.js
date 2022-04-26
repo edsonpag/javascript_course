@@ -1,8 +1,28 @@
-const cards_length = 6
+let cards_length = 6
+let maxTime = 0
+let gameover = false
 const cards = []
 let allCardsShown = 0
 
 const mainEl = document.querySelector('main')
+
+
+function difficulty() {
+    const selectEl = document.querySelector('#difficulty')
+
+    const selectedDifficulty = selectEl.value
+
+    if(selectedDifficulty === 'easy') {
+        maxTime = 120000
+        cards_length = 6
+    } else if(selectedDifficulty === 'medium') {
+        maxTime = 60000
+        cards_length = 8
+    } else {
+        cards_length = 10
+        maxTime = 30000
+    }
+}
 
 const getCards = () => {
     for(let i = 0; i < cards_length; i++) {
@@ -44,26 +64,34 @@ function getRandomSequenceOfNumbers() {
     return randomSequenceOfNumbers
 }
 
-const app = () => {
-    getCards()
-    displayCards()
+function startGame() {
+    const startBtn = document.querySelector('.startBtn')
+    const resetBtn = document.querySelector('.resetBtn')
+
+    startBtn.addEventListener('click', (event) => {
+        startBtn.style.display = 'none'
+        resetBtn.style.display = 'block'
+
+        timer()
+        difficulty()
+        getCards()
+        displayCards()
+        addEventListenerToCards()
+    })
+
+    resetBtn.addEventListener('click', (event) => {
+        document.location.reload()
+    })
 }
 
-app()
 
-const randomSequenceOfNumbers = getRandomSequenceOfNumbers()
-const cardsEl = document.querySelectorAll('.card')
+
 let selectedCards = []
 let selectedCardsId = []
 
-const startBtn = document.querySelector('.startBtn')
-const resetBtn = document.querySelector('.resetBtn')
-
-startBtn.addEventListener('click', (event) => {
-    timer()
-
-    startBtn.style.display = 'none'
-    resetBtn.style.display = 'block'
+function addEventListenerToCards() {
+    const randomSequenceOfNumbers = getRandomSequenceOfNumbers()
+    const cardsEl = document.querySelectorAll('.card')
 
     cardsEl.forEach((card, index) => {
         card.addEventListener('click', async (event) => {
@@ -91,11 +119,7 @@ startBtn.addEventListener('click', (event) => {
             }
         })
     })
-})
-
-resetBtn.addEventListener('click', (event) => {
-    document.location.reload()
-})
+}
 
 function hiddenCards() {
     if(selectedCardsId[0] !== selectedCardsId[1]) {
@@ -107,10 +131,7 @@ function hiddenCards() {
         console.log(allCardsShown)
     }
 
-    if(isGameOver()) {
-        window.alert('Você ganhou com o tempo de ' + timerEl.innerHTML)
-        document.location.reload()
-    }
+    isGameOver()
 
     selectedCards = []
     selectedCardsId = []
@@ -119,9 +140,10 @@ function hiddenCards() {
 const timerEl = document.querySelector('.timer')
 
 function timer() {
-    let minutes = 0, seconds = 0
+    let minutes = 0, seconds = 0, ms = 0
 
     const time = setInterval(() => {
+        ms = seconds * 1000
         seconds++
 
         if(seconds < 10) {
@@ -135,18 +157,27 @@ function timer() {
             seconds = 0
         }
 
+        if(ms >= maxTime) {
+            clearInterval(time)
+            gameover = true
+            isGameOver()
+        }
+
     }, 1000)
 }
 
 
 function isGameOver() {
     if(allCardsShown === cards.length) {
-        return true
+        window.alert('Você ganhou com o tempo de ' + timerEl.innerHTML)
+        document.location.reload()
     }
-    else {
-        return false
+    else if(gameover) {
+        window.alert('Você perdeu')
+        document.location.reload()
     }
 }
 
-// Adicionar niveis de dificuldade (facil, medio e hard). Quanto maior a dificuldade, menos tempo ele tem para completar e aumentar o número de cards
+
+startGame()
 // O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage caso o usuario recarregue a pagina
