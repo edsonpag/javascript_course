@@ -76,14 +76,17 @@ startBtn.addEventListener('click', (event) => {
             card.innerHTML = `
                 <img src=${cards[selectedCard]} class="img-card" data-card-id=${selectedCard}>
             `
-    
+
+            const imgCard = card.firstElementChild
+            imgCard.style.animation = 'flip 0.8s ease 0s 1 normal'
+
             selectedCards.push(card)
             selectedCardsId.push(selectedCard)
             
             if(selectedCards.length === 2) {
                 await setTimeout(async () => {
                     await hiddenCards()
-                }, 400)
+                }, 800)
                 
             }
         })
