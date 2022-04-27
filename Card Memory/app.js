@@ -222,5 +222,3 @@ startGame()
 showStats()
 closeStats()
 showVictoriesAndDefeats()
-
-// O usuario pode ver as estaticas do jogo: número de vezes que ganhou/perdeu e o melhor tempo para cada nivel, armazenar no localStorage
