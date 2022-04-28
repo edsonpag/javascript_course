@@ -72,7 +72,11 @@ a {
     display: grid;
     grid-template-columns: auto auto auto;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.grid-container-3 div {
+    margin: 0 6px;
 }
 
 .gift-card {
@@ -86,4 +90,56 @@ a {
 .login {
     color: blue;
     font-weight: bolder;
+}
+
+.nav-2 {
+    display: none;
+    list-style: none;
+}
+
+@media screen and (max-width: 1250px) {
+
+    nav {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .nav-2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-2 li {
+        margin: 8px;
+    }
+
+    .grid-container-2 {
+        display: none;
+    }
+
+    .grid-container-1 .explore {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav2 {
+        font-size: 0.8em;    
+    }
+
+    .nav-2 a {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .explore p {
+        display: none;
+    }
+
+    .nav-2 a {
+        font-size: 0.7em;
+    }
 }
