@@ -4,6 +4,10 @@
     font-family: sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .explore {
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -196,5 +200,12 @@ main img {
 
     .nav-2 a {
         font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: column;
     }
 }
