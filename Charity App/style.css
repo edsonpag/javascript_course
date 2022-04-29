@@ -127,16 +127,7 @@ a {
 
 }
 
-@media screen and (max-width: 768px) {
 
-    .nav2 {
-        font-size: 0.8em;    
-    }
-
-    .nav-2 a {
-        font-size: 0.9em;
-    }
-}
 
 main {
     display: grid;
@@ -146,17 +137,20 @@ main {
 
 .grid-1 {
     width: 100%;
-    position: relative;
 }
 
 .grid-2 {
     width: 100%;
-    position: relative;
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     gap: 3px 3px;
     font-size: 0.7em;
+}
+
+.card {
+    position: relative;
+    height: 100%;
 }
 
 .text-shadow {
@@ -192,6 +186,190 @@ main img {
     border: 1px solid black;
 }
 
+.explore-projects {
+    height: 68px;
+    background: rgb(218, 218, 218);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 0.9em;
+}
+
+.explore-projects p {
+    margin: 0 8px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    height: 370px;
+}
+
+.about-text {
+    max-width: 50vw;
+    font-size: 1.3em;
+}
+
+.learn-more {
+    margin-top: 30px;
+    border: none;
+    outline: none;
+    background: #80A1B6;
+    padding: 15px 40px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.contributions {
+    position: relative;
+    height: 140px;
+    background-color: #F08B1D;
+    color: white;
+    padding: 20px 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.contributions div p:first-child {
+    font-size: 2em;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.dot {
+    position: absolute;
+    background: #F08B1D;
+    height: 30px;
+    width: 30px;
+    bottom: -10px;
+    left: 50%;
+    transform: rotate(45deg);
+}
+
+.how-it-works {
+    background: #EBEEEE;
+    height: auto;
+
+    padding-bottom: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-it-works-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.how-it-works-cards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    margin: 0 50px;
+}
+
+.how-it-works-card {
+    height: auto;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 5px;
+}
+
+.card-icon {
+    margin-top: 40px;
+    font-size: 4.5em;
+    color: rgb(27, 221, 27);
+}
+
+.card-text {
+    width: 80%;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.card-highlight {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: rgb(27, 221, 27);
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .explore-projects {
+        height: auto;
+    }
+
+    .explore-projects p {
+        margin: 20px;
+    }
+
+    .contributions {
+        height: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-evenly;
+    }
+
+    .contributions div {
+        margin: 15px 0;
+    }
+
+    .dot {
+        bottom: -22px;
+    }
+
+    .how-it-works-cards {
+        grid-template-columns: auto auto;
+    }
+
+    .how-it-works-card {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav2 {
+        font-size: 0.8em;    
+    }
+
+    .nav-2 a {
+        font-size: 0.9em;
+    }
+
+    .how-it-works-cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 @media screen and (max-width: 500px) {
     .explore p {
@@ -201,11 +379,8 @@ main img {
     .nav-2 a {
         font-size: 0.7em;
     }
-}
-
-@media screen and (max-width: 1024px) {
-    main {
-        display: flex;
-        flex-direction: column;
+    
+    .about-text {
+        min-width: 80vw;
     }
 }
