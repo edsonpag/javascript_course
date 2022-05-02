@@ -29,6 +29,7 @@ passwordGeneratorEl.addEventListener("click", (event) => {
     if(!password) return;
 
     displayPassword(password);
+    passwordStrength();
 })
 
 copyPasswordEl.addEventListener("click", async (event) => {
@@ -36,7 +37,7 @@ copyPasswordEl.addEventListener("click", async (event) => {
     
     if(!password) return;
 
-    await navigator.clipboard.writeText(password)
+    await navigator.clipboard.writeText(password);
 })
 
 
@@ -104,4 +105,41 @@ function getRandomSymbol() {
 
 function displayPassword(password) {
     createdPasswordEl.innerText = password;
+}
+
+function passwordStrength() {
+    const password = createdPasswordEl.innerText;
+    const strength = zxcvbn(password).score;
+    const passwordStrengthEl = document.querySelector(".password-strength");
+    const passwordStrengthTextEl = document.querySelector(".password-strength-text");
+
+    passwordStrengthEl.style.width = "40px";
+    passwordStrengthEl.style.height = "2px";
+
+    if(strength === 4) {
+        passwordStrengthEl.style.background = "blue";
+        passwordStrengthTextEl.innerHTML = "<p>Muito Forte</p>";
+    }
+
+    else if(strength === 3) {
+        passwordStrengthEl.style.background = "green";
+        passwordStrengthTextEl.innerHTML = "<p>Forte</p>";
+    }
+
+    else if(strength === 2) {
+        passwordStrengthEl.style.background = "yellow";
+        passwordStrengthTextEl.innerHTML = "<p>Medio</p>";
+    }
+
+    else if(strength === 1) {
+        passwordStrengthEl.style.background = "Orange";
+        passwordStrengthTextEl.innerHTML = "<p>Fraco</p>";
+    }
+
+    else {
+        passwordStrengthEl.style.background = "Red";
+        passwordStrengthTextEl.innerHTML = "<p>Muito Fraco</p>";
+    }
+
+    console.log(strength)
 }
