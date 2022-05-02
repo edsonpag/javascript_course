@@ -44,27 +44,17 @@ function generatePassword() {
 
     const controller = [];
 
-    if(uppercase) {
-        numberOfOptions++;
-        controller.push("uppercase");
-    }
+    if(uppercase) controller.push("uppercase");
 
-    if(lowercase) {
-        numberOfOptions++;
-        controller.push("lowercase");
-    }
+    if(lowercase) controller.push("lowercase");
 
-    if(numbers) {
-        numberOfOptions++;
-        controller.push("numbers");
-    }
+    if(numbers) controller.push("numbers");
 
-    if(symbols) {
-        numberOfOptions++;
-        controller.push("symbols");
-    }
+    if(symbols) controller.push("symbols");
 
     if(controller.length <= 0) return;
+
+    numberOfOptions = controller.length;
 
     for(let i = 0; i < passwordLength; i++) {
         let option = Math.floor(Math.random() * numberOfOptions);
