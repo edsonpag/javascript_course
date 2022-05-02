@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.password-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+    height: auto;
+
+    background: #333;
+    color: white;
+    border-radius: 4px;
+}
+
+main div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px 0;
+}
+
+.header {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 1.3em;
+}
+
+.password {
+    font-weight: bolder;
+}
+
+.password-generator {
+    cursor: pointer;
+}
+
+.password-generator p {
+    margin: 0 5px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.password-generator i {
+    color: rgb(0, 119, 255);
+    font-size: 1.2em;
+}
+
+.copy-password {
+    cursor: pointer;
+}
+
+.copy-password p {
+    margin: 0 5px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.copy-password i {
+    color: rgb(0, 119, 255);
+    font-size: 1.1em;
+}
+
+.options-menu {
+    display: none;
+    flex-direction: column;
+}
+
+.show-options-menu {
+    display: flex;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.options-btn {
+    cursor: pointer;
+}
+
+.options-btn p {
+    margin: 0 5px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+div input {
+    margin: 0 10px;
+}
