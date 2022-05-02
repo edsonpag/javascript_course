@@ -35,7 +35,6 @@ passwordGeneratorEl.addEventListener("click", (event) => {
 function generatePassword() {
     let password = "";
     let passwordLength = parseInt(passwordLengthEl.value);
-    let numberOfOptions = 0;
 
     const uppercase = document.querySelector("#uppercase-letters").checked;
     const lowercase = document.querySelector("#lowercase-letters").checked;
@@ -54,7 +53,7 @@ function generatePassword() {
 
     if(controller.length <= 0) return;
 
-    numberOfOptions = controller.length;
+    const numberOfOptions = controller.length;
 
     for(let i = 0; i < passwordLength; i++) {
         let option = Math.floor(Math.random() * numberOfOptions);
