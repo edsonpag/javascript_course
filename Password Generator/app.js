@@ -3,7 +3,7 @@ const optionsMenuEl = document.querySelector(".options-menu");
 
 const createdPasswordEl = document.querySelector(".created-password");
 const passwordGeneratorEl = document.querySelector(".password-generator");
-const copyPasswordEl = document.querySelector(".password-generator");
+const copyPasswordEl = document.querySelector(".copy-password");
 
 const passwordLengthEl = document.querySelector("#password-length");
 const passwordLengthLabel = document.querySelector("#password-length-label");
@@ -29,6 +29,14 @@ passwordGeneratorEl.addEventListener("click", (event) => {
     if(!password) return;
 
     displayPassword(password);
+})
+
+copyPasswordEl.addEventListener("click", async (event) => {
+    const password = createdPasswordEl.innerText;
+    
+    if(!password) return;
+
+    await navigator.clipboard.writeText(password)
 })
 
 
