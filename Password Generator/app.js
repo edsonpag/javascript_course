@@ -23,17 +23,88 @@ passwordLengthEl.addEventListener("change", (event) => {
 })
 
 passwordGeneratorEl.addEventListener("click", (event) => {
-    let password = "";
-    const passwordLength = parseInt(passwordLengthEl.value);
-    const uppercase = uppercaseLettersEl.checked;
-    const lowercase = lowercaseLettersEl.checked;
-    const numbers = numberEl.checked;
-    const symbols = symbolsEl.checked;
-    let controller = [];
 
-    if(uppercase) controller.push("uppercase");
-    if(lowercase) controller.push("lowercase");
-    if(numbers) controller.push("numbers");
-    if(symbols) controller.push("symbols")
+    const password = generatePassword();
 
+    if(!password) return;
+
+    displayPassword(password);
 })
+
+
+function generatePassword() {
+    let password = "";
+    let passwordLength = parseInt(passwordLengthEl.value);
+    let numberOfOptions = 0;
+
+    const uppercase = document.querySelector("#uppercase-letters").checked;
+    const lowercase = document.querySelector("#lowercase-letters").checked;
+    const numbers = document.querySelector("#numbers").checked;
+    const symbols = document.querySelector("#symbols").checked;
+
+    const controller = [];
+
+    if(uppercase) {
+        numberOfOptions++;
+        controller.push("uppercase");
+    }
+
+    if(lowercase) {
+        numberOfOptions++;
+        controller.push("lowercase");
+    }
+
+    if(numbers) {
+        numberOfOptions++;
+        controller.push("numbers");
+    }
+
+    if(symbols) {
+        numberOfOptions++;
+        controller.push("symbols");
+    }
+
+    if(controller.length <= 0) return;
+
+    for(let i = 0; i < passwordLength; i++) {
+        let option = Math.floor(Math.random() * numberOfOptions);
+
+        if(controller[option] === "uppercase") {
+            password += String.fromCharCode(getRandomLetter());
+        }
+        else if(controller[option] === "lowercase") {
+            password += String.fromCharCode(getRandomLetter()).toLowerCase();
+        }
+        else if(controller[option] === "numbers") {
+            password += getRandomNumber();
+        }
+        else if(controller[option] === "symbols") {
+            password += getRandomSymbol();
+        }
+    }
+    
+    return password;
+}
+
+function getRandomLetter() {
+    const letter = Math.floor(Math.random() * 26) + 65;
+    return letter;
+}
+
+function getRandomNumber() {
+    const number = Math.floor(Math.random() * 10);
+    return number;
+}
+
+function getRandomSymbol() {
+    const symbols = ["!", "@", "#", "$", "%", "&", "*"];
+    const symbolsLength = symbols.length;
+
+    const randomNumber = Math.floor(Math.random() * symbolsLength);
+
+    return symbols[randomNumber];
+}
+
+function displayPassword(password) {
+    createdPasswordEl.innerText = password;
+}
