@@ -13,6 +13,8 @@
     --primary-color: hsla(170, 100%, 26%, 1);
     --gray-headline: hsla(210, 11%, 15%, 1);
     --gray-paragraph: hsla(210, 9%, 31%, 1);
+    --brand-beige: hsla(39, 100%, 97%, 1);
+    --green-light: hsla(148, 23%, 89%, 1);
 }
 
 body {
@@ -76,4 +78,51 @@ button {
 
     margin-left: auto;
     margin-right: auto;
+}
+
+header img {
+    display: block;
+    margin-inline: auto;
+    object-position: 0 2rem;
+    width: 30rem;
+}
+
+.stats {
+    width: 32.7rem;
+    height: 47rem;
+    background-color: var(--brand-beige);
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.stat h3 {
+    font-size: 4.8rem;
+    color: var(--gray-headline);
+
+    line-height: 130%;
+    margin: 0;
+}
+
+.stat p {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+
+    line-height: 150%;
+    margin: 0;
+}
+
+header::before {
+    content: "";
+    width: 100vw;
+    height: 108rem;
+    background-color: var(--green-light);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
