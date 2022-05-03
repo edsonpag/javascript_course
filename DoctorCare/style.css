@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    box-sizing: border-box; /* O tamanho do elemento, será somando a partir da borda, isso permitirá que o elemento nunca tenha um tamanho maior que sua largura/altura */
+}
+
+/* :root é elemento raiz da pagina. * são todos os elementos da pagina */
+:root {
+    font-size: 62.5%;
+    /*
+    Definição de variaveis css
+    HSL: Cor Saturação Luz Opacidade
+    */
+    --primary-color: hsla(170, 100%, 26%, 1);
+    --gray-headline: hsla(210, 11%, 15%, 1);
+    --gray-paragraph: hsla(210, 9%, 31%, 1);
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+}
+
+header {
+    width: 37.5rem;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h4 {
+    margin-top: 4.1rem;
+
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 150%; /* altura entre uma linha e outra */
+    letter-spacing: 0.08em;
+}
+
+h1 {
+    margin-top: 1.6rem;
+
+    color: var(--gray-headline);
+    font-size: 3.4rem;
+    line-height: 130%;
+}
+
+p {
+    margin-top: 2.4rem;
+
+    color: var(--gray-paragraph);
+    font-size: 1.8rem;
+    line-height: 150%;
+}
+
+button {
+    margin-top: 3.2rem;
+    margin-bottom: 6rem;
+
+    cursor: pointer;
+    background: var(--primary-color);
+
+    border: none;
+    border-radius: 4rem;
+
+    width: 26.3rem;
+    height: 5.2rem;
+
+    color: white;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+
+    margin-left: auto;
+    margin-right: auto;
+}
