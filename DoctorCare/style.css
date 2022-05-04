@@ -51,6 +51,7 @@ nav {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 .fixed {
@@ -62,12 +63,100 @@ nav {
     top: 0;
 }
 
-.fixed svg:nth-child(1) path {
+.svg-white a svg path {
     fill: white;
 }
 
-.fixed svg:nth-child(2) path {
+.fixed a svg path {
+    fill: white;
+}
+
+.fixed div svg path {
     stroke: white;
+}
+
+.open-menu {
+    cursor: pointer;
+}
+
+.close-menu {
+    cursor: pointer;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: var(--primary-color);
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-menu {
+    display: flex;
+}
+
+.menu-links {
+    margin-top: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #FFFAF1;
+}
+
+.scheduling-btn {
+    margin-top: 4.8rem;
+    margin-bottom: 8rem;
+
+    width: 27.4rem; 
+    height: 5.5rem;
+    background-color: white;
+
+    border: none;
+    border-radius: 4rem;
+
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 8rem 3.2rem;
+    font-size: 2.4rem;
 }
 
 header {
@@ -169,3 +258,12 @@ header img {
     margin: 0;
 }
 
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
