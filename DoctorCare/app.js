@@ -14,19 +14,22 @@ const closeMenuEl = document.querySelector(".close-menu");
 const menuEl = document.querySelector(".menu");
 const headerEl = document.querySelector("header");
 
-openMenuEl.addEventListener("click", (event) => {
+const openMenu = (event) => {
     openMenuEl.classList.add("hidden");
     closeMenuEl.classList.add("show");
     menuEl.classList.add("show-menu");
     navEl.classList.add("svg-white");
     document.body.style.overflow = "hidden";
-    menuEl.style.animation = "fade 0.8s ease 0s 1 normal";
-})
+    menuEl.style.animation = "show 0.3s ease 0s 1 normal";
+}
 
-closeMenuEl.addEventListener("click", (event) => {
+const closeMenu = (event) => {
     openMenuEl.classList.remove("hidden");
     closeMenuEl.classList.remove("show");
     menuEl.classList.remove("show-menu");
     navEl.classList.remove("svg-white");
     document.body.style.overflow = "visible";
-})
+}
+
+openMenuEl.addEventListener("click", openMenu);
+closeMenuEl.addEventListener("click", closeMenu);
