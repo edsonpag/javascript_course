@@ -262,6 +262,56 @@ nav {
     margin: 0;
 }
 
+#services {
+    padding-block: 10rem;
+}
+
+#services h4 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1.6rem;
+}
+
+#services h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--gray-headline);
+    margin-bottom: 6rem;
+}
+
+#services .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+#services .card {
+    border: 1px solid var(--green-light);
+    text-align: left;
+    padding: 2.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1.6rem;
+}
+
+#services .card h2 {
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    color: var(--gray-headline);
+}
+
+#services .card p {
+    font-size: 1.6rem;
+    line-height: 150%;
+    font-weight: 400;
+    color: var(--gray-paragraph);
+}
+
 @keyframes show {
     from {
         transform: translateY(100%)
