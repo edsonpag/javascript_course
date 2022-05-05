@@ -1,4 +1,9 @@
 const navEl = document.querySelector(".nav-container");
+const headerEl = document.querySelector("#home");
+const servicesEl = document.querySelector(".services")
+const menuEl = document.querySelector(".menu");
+const openMenuEl = document.querySelector(".open-menu");
+const closeMenuEl = document.querySelector(".close-menu");
 
 document.addEventListener("scroll", (event) => {
     if(scrollY > 0) {
@@ -8,11 +13,6 @@ document.addEventListener("scroll", (event) => {
         navEl.classList.remove("fixed");
     }
 })
-
-const openMenuEl = document.querySelector(".open-menu");
-const closeMenuEl = document.querySelector(".close-menu");
-const menuEl = document.querySelector(".menu");
-const headerEl = document.querySelector("header");
 
 const openMenu = (event) => {
     openMenuEl.classList.add("hidden");
