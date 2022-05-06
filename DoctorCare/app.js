@@ -4,6 +4,7 @@ const servicesEl = document.querySelector(".services")
 const menuEl = document.querySelector(".menu");
 const openMenuEl = document.querySelector(".open-menu");
 const closeMenuEl = document.querySelector(".close-menu");
+const backToTopBtn = document.querySelector(".back-to-top");
 
 const sr = ScrollReveal({
     reset: true,
@@ -25,13 +26,27 @@ sr.reveal(`
 `);
 
 document.addEventListener("scroll", (event) => {
+    fixedNavbar();
+    showBackToTopBtn();
+})
+
+const fixedNavbar = () => {
     if(scrollY > 0) {
         navEl.classList.add("fixed");   
     }
     else {
         navEl.classList.remove("fixed");
     }
-})
+}
+
+const showBackToTopBtn = () => {
+    if(scrollY > 500) {
+        backToTopBtn.classList.add("show-back-to-top");
+    }
+    else {
+        backToTopBtn.classList.remove("show-back-to-top");
+    }
+}
 
 const openMenu = (event) => {
     openMenuEl.classList.add("hidden");

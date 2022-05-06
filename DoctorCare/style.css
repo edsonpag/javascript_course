@@ -428,6 +428,29 @@ body::before {
     color: white;
 }
 
+.back-to-top {
+    font-size: 5rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+
+    transition: all 500ms ease;
+}
+
+.back-to-top a {
+    color: var(--primary-color);
+}
+
+.show-back-to-top {
+    transform: translateY(0%);
+    visibility: visible;
+    opacity: 1;
+}
+
 @keyframes show {
     from {
         transform: translateY(100%)
