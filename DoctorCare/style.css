@@ -36,6 +36,10 @@ body {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .centralizer {
     width: 37.5rem;
     margin-right: auto;
@@ -59,7 +63,7 @@ nav {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 101;
 }
 
 .fixed {
@@ -114,6 +118,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 .show-menu {
@@ -159,6 +164,7 @@ nav {
     font-weight: bold;
     font-size: 1.8rem;
     line-height: 2.3rem;
+    cursor: pointer;
 }
 
 .social-links {
