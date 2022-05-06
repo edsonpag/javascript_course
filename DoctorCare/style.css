@@ -171,7 +171,7 @@ nav {
     padding-top: calc(var(--nav-height) + 4rem);
 }
 
-#home::before {
+body::before {
     content: "";
     width: 100%;
     height: calc(108rem + var(--nav-height) + 4rem); /*1080px + nav height + 40px de margin */
