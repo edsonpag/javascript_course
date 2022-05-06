@@ -5,6 +5,22 @@ const menuEl = document.querySelector(".menu");
 const openMenuEl = document.querySelector(".open-menu");
 const closeMenuEl = document.querySelector(".close-menu");
 
+const sr = ScrollReveal({
+    reset: true,
+    origin: "top",
+    distance: "30px"
+});
+
+sr.reveal(`
+#home,
+#home img,
+#home .stats,
+#services,
+#services .card,
+#about-us,
+#about-us img
+`);
+
 document.addEventListener("scroll", (event) => {
     if(scrollY > 0) {
         navEl.classList.add("fixed");   

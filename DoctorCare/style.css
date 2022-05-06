@@ -43,6 +43,10 @@ body {
     padding-inline: 2.4rem;
 }
 
+.nav-container {
+    z-index: 100;
+}
+
 nav {
     height: var(--nav-height);
 
