@@ -312,6 +312,35 @@ nav {
     color: var(--gray-paragraph);
 }
 
+#about-us {
+    background: var(--brand-beige);
+    padding-block: 10rem;
+    text-align: left;
+}
+
+#about-us h4 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1.6rem;
+}
+
+#about-us h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--gray-headline);
+    margin-bottom: 2.4rem;
+}
+
+#about-us p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: var(--gray-paragraph);
+    margin-bottom: 6rem;
+}
+
 @keyframes show {
     from {
         transform: translateY(100%)
