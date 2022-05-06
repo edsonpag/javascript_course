@@ -18,7 +18,10 @@ sr.reveal(`
 #services,
 #services .card,
 #about-us,
-#about-us img
+#about-us img,
+#contact,
+#contact img,
+.copyright
 `);
 
 document.addEventListener("scroll", (event) => {

@@ -345,6 +345,83 @@ body::before {
     margin-bottom: 6rem;
 }
 
+#contact {
+    padding-top: 10rem;
+}
+
+#contact h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--gray-headline);
+    text-align: left;
+
+    padding-left: 2.4rem;
+    margin-bottom: 3.2rem;
+}
+
+#contact ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+
+    margin-left: 2.4rem;
+    margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+#contact .scheduling-btn {
+    margin: 0;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 6rem;
+}
+
+.copyright {
+    margin-top: 10rem;
+    padding-top: 6rem;
+    padding-left: 2.6rem;
+    height: 28.5rem;
+    background-color: var(--primary-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.copyright svg {
+    width: 23.6rem;
+    height: 3.1rem;
+    margin-bottom: 2.4rem;
+}
+
+.copyright svg path {
+    fill: white;
+}
+
+.copyright p {
+    margin-bottom: 1.2rem;
+    color: white;
+}
+
+.copyright ul {
+    margin-top: 3.2rem;
+    list-style: none;
+}
+
+.copyright ul li a {
+    color: white;
+}
+
 @keyframes show {
     from {
         transform: translateY(100%)
