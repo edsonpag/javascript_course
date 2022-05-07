@@ -41,7 +41,7 @@ a {
 }
 
 .centralizer {
-    width: 37.5rem;
+    width: min(50rem, 100%);
     margin-right: auto;
     margin-left: auto;
     padding-inline: 2.4rem;
@@ -241,11 +241,11 @@ body::before {
     display: block;
     margin-inline: auto;
     object-position: 0 2rem;
-    width: 30rem;
+    width: 100%;
 }
 
 .stats {
-    width: 32.7rem;
+    width: 100%;
     height: 47rem;
     background-color: var(--brand-beige);
     margin-inline: auto;
@@ -351,6 +351,10 @@ body::before {
     margin-bottom: 6rem;
 }
 
+#about-us img {
+    width: 100%;
+}
+
 #contact {
     padding-top: 10rem;
 }
@@ -381,6 +385,10 @@ body::before {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+}
+
+#contact img {
+    width: 100%;
 }
 
 #contact .scheduling-btn {
