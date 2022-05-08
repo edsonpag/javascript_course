@@ -16,6 +16,7 @@
     --gray-paragraph: hsla(210, 9%, 31%, 1);
     --brand-beige: hsla(39, 100%, 97%, 1);
     --green-light: hsla(148, 23%, 89%, 1);
+    --brand-light-2: hsl(180, 14%, 97%);
 
     --nav-height: 7.2rem;
 }
@@ -40,6 +41,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 .centralizer {
     width: min(50rem, 100%);
     margin-right: auto;
@@ -53,6 +58,8 @@ a {
 
 nav {
     height: var(--nav-height);
+    width: min(50rem, 100%);
+    padding-inline: 2.4rem;
 
     display: flex;
     justify-content: space-between;
@@ -73,6 +80,8 @@ nav {
 
     position: fixed;
     top: 0;
+
+    animation: showNavBar 100ms ease 0s 1 normal;
 }
 
 .svg-white a svg path {
@@ -238,10 +247,10 @@ body::before {
 }
 
 #home img {
+    width: 26.4rem;
     display: block;
     margin-inline: auto;
     object-position: 0 2rem;
-    width: 100%;
 }
 
 .stats {
@@ -323,6 +332,8 @@ body::before {
 }
 
 #about-us {
+    display: flex;
+    flex-direction: column;
     background: var(--brand-beige);
     padding-block: 10rem;
     text-align: left;
@@ -351,11 +362,9 @@ body::before {
     margin-bottom: 6rem;
 }
 
-#about-us img {
-    width: 100%;
-}
-
 #contact {
+    display: flex;
+    flex-direction: column;
     padding-top: 10rem;
 }
 
@@ -387,9 +396,6 @@ body::before {
     gap: 0.8rem;
 }
 
-#contact img {
-    width: 100%;
-}
 
 #contact .scheduling-btn {
     margin: 0;
@@ -459,12 +465,121 @@ body::before {
     opacity: 1;
 }
 
+@media screen and (min-width: 1024px) {
+    div#navigation div.centralizer * {
+        margin: 0;
+        padding: 0;
+        padding-inline: initial;
+        padding-block: initial;
+        width: initial;
+        height: initial;
+        display: initial;
+        flex-direction: initial;
+        justify-content: initial;
+        align-items: initial;
+        font-size: initial;
+        font-weight: initial;
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        z-index: initial;
+        background-color: initial;
+        color: initial;
+    }
+
+    div#navigation nav .open-menu,
+    div#navigation nav .close-menu {
+        display: none;
+    }
+
+    div#navigation .menu .social-links {
+        display: none;
+    }
+
+    .centralizer {
+        width: min(112rem, 100%);
+    }
+
+    div#navigation .centralizer {
+        height: var(--nav-height);
+        width: 100%;
+        padding-inline: 12.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div#navigation .centralizer .menu {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    div#navigation .centralizer .menu .menu-links {
+        display: flex;
+        gap: 3.2rem;
+    }
+
+    div#navigation .centralizer .menu .menu-links a {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+    }
+
+    div#navigation.fixed .centralizer .menu .menu-links a {
+        color: var(--brand-light-2);
+    }
+
+    div#navigation .centralizer .menu .scheduling-btn {
+        height: 3.8rem;
+        width: 19rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        border: 1px solid var(--primary-color);
+        border-radius: 4rem;
+    }
+    
+    div#navigation .centralizer .menu .scheduling-btn a {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        font-weight: bold;
+        line-height: 1.8rem;
+    }
+
+    div#navigation.fixed .centralizer .menu .scheduling-btn {
+        border: 1px solid white;
+    }
+
+    div#navigation.fixed .centralizer .menu .scheduling-btn a {
+        color: white;
+    }
+
+}
+
+
 @keyframes show {
     from {
         transform: translateY(100%)
     }
 
     to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes showNavBar {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
         transform: translateY(0%);
     }
 }
