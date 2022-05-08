@@ -525,10 +525,43 @@ body::before {
         color: var(--primary-color);
         font-size: 1.6rem;
         line-height: 2.1rem;
+        opacity: 0.7;
+    }
+
+    div#navigation .centralizer .menu .menu-links a:hover {
+        opacity: 1;
+        font-weight: bold;
+    }
+
+    div#navigation .centralizer .menu .menu-links a::after {
+        content: "";
+        display: block;
+        width: 0%;
+        opacity: 0;
+        height: 0.2rem;
+        padding-inline: 0.4rem;
+
+        position: relative;
+        right: 0.4rem;
+        bottom: -2.2rem;
+
+        transition: all 200ms ease;
+    }
+
+    div#navigation .centralizer .menu .menu-links a:hover::after {
+        background-color: var(--primary-color);
+        width: 100%;
+        opacity: 1;
     }
 
     div#navigation.fixed .centralizer .menu .menu-links a {
         color: var(--brand-light-2);
+    }
+
+    div#navigation.fixed .centralizer .menu a:hover::after {
+        width: 100%;
+        opacity: 1;
+        background-color: white;
     }
 
     div#navigation .centralizer .menu .scheduling-btn {
