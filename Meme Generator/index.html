@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerador de Memes</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>Gerador de Memes</h1>
+            <p>A forma mais rapida e fácil de criar e compartilhar seu meme na internet.</p>
+        </div>
+    </header>
+
+
+    <section id="upload-image">
+        <div class="wrapper">
+            <label for="input-image">Envie sua Imagem</label>
+            <input type="file" name="input-image" id="input-image" accept="image/*">
+        </div>
+        
+    </section>
+
+
+    <main>
+        <div class="wrapper">
+            <div class="canvas-container">
+                <canvas id="meme" style="width: 100%; height: 30rem"></canvas>
+            </div>
+        </div>
+    </main>
+
+
+    <section class="form">
+
+        <div class="wrapper">
+
+            <form action="">
+                <div class="top-text-container">
+                    <label for="top-text">Texto do Topo</label>
+                    <input type="text" name="top-text" id="top-text" placeholder="Texto do Topo" autocomplete="on">
+                </div>
+
+                <div class="bottom-text-container">
+                    <label for="bottom-text">Texto de Baixo</label>
+                    <input type="text" name="bottom-text" id="bottom-text" placeholder="Texto do Topo" autocomplete="on">
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
