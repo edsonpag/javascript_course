@@ -1,9 +1,11 @@
 const canvas = document.querySelector("#meme");
 const context = canvas.getContext("2d");
 const canvasContainer = document.querySelector(".canvas-container");
+const canvasWidth = 500;
+const canvasHeight = 300;
 
 const input = document.querySelector("#input-image");
-
+const topText = document.querySelector("#top-text");
 
 input.addEventListener("change", (event) => {
     const reader = new FileReader();
@@ -23,4 +25,11 @@ input.addEventListener("change", (event) => {
         }
         canvasContainer.insertAdjacentElement("beforeend", image);
     }
+})
+
+topText.addEventListener("input", (event) => {
+    context.font = "2rem DM Sans";
+
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
+    context.fillText(topText.value, 30, 30);
 })

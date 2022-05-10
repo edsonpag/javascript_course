@@ -66,17 +66,23 @@ main {
 
 .canvas-container {
     position: relative;
-}
-
-#meme {
     border: 1px solid black;
 }
 
+
 #meme-image {
     width: 100%;
-    height: 30rem;
+    height: 100%;
 
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
+}
+
+@media screen and (max-width: 550px) {
+    #meme {
+        width: 28rem;
+        height: 28rem;
+    }
 }
