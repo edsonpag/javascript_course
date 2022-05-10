@@ -89,6 +89,22 @@ main {
     z-index: -1;
 }
 
+/* -------------- SECTION SETTINGS ------------------ */
+
+.settings {
+    margin-top: 3rem;
+}
+
+.settings .wrapper {
+    gap: 1.2rem;
+}
+
+#font-size {
+    font-size: 1.6rem;
+    padding: 0.1rem 1rem;
+}
+
+
 /* -------------- SECTION FORM ------------------ */
 
 .form {
@@ -107,12 +123,18 @@ form div {
     align-items: center;
 }
 
-form div input {
+form div textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    line-height: 3.1rem;
+
     outline: none;
     border: 1px solid black;
     border-radius: 0.4rem;
 
     padding: 1rem 1.5rem;
+    margin-top: 1rem;
 }
 
 /* -------------- CANVAS RESPONSIVO ------------------ */

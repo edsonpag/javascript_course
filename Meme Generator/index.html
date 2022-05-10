@@ -37,6 +37,27 @@
     </main>
 
 
+    <section class="settings">
+        <div class="wrapper">
+            <div class="font-family-container">
+                <label for="font-family">Fonte</label>
+                <select name="font-family" id="font-family">
+                    <option value="arial" selected>Arial</option>
+                    <option value="sans-serif">Sans-serif</option>
+                    <option value="verdana">Verdana</option>
+                    <option value="lucida sans">Lucida Sans</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="courier new">Courier New</option>
+                </select>
+            </div>
+
+            <div class="font-size-container">
+                <label for="font-size">Tamanho da Fonte</label>
+                <select name="font-size" id="font-size"></select>
+            </div>
+        </div>
+    </section>
+
     <section class="form">
 
         <div class="wrapper">
@@ -44,12 +65,14 @@
             <form action="">
                 <div class="top-text-container">
                     <label for="top-text">Texto do Topo</label>
-                    <input type="text" name="top-text" id="top-text" placeholder="Texto do Topo" autocomplete="on">
+
+                    <textarea name="top-text" id="top-text" cols="30" rows="2" placeholder="Texto do Topo"></textarea>
                 </div>
 
                 <div class="bottom-text-container">
                     <label for="bottom-text">Texto de Baixo</label>
-                    <input type="text" name="bottom-text" id="bottom-text" placeholder="Texto do Topo" autocomplete="on">
+
+                    <textarea name="bottom-text" id="bottom-text" cols="30" rows="2" placeholder="Texto de Baixo"></textarea>
                 </div>
             </form>
 
