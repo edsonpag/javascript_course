@@ -35,6 +35,12 @@ const getCurrentFontSize = () => {
     return fontSizeSelect.value;
 }
 
+const getCurrentFontColor = () => {
+    const fontColorInput = document.querySelector("#font-color");
+
+    return fontColorInput.value;
+}
+
 /* ------------ ADICIONA A IMAGEM NA TELA --------------- */
 input.addEventListener("change", (event) => {
     const reader = new FileReader();
@@ -62,18 +68,22 @@ input.addEventListener("change", (event) => {
 topText.addEventListener("input", (event) => {
     const currentFont = getCurrentFont();
     const currentFontSize = getCurrentFontSize();
+    const currentFontColor = getCurrentFontColor();
 
     context.font = `${currentFontSize/10}rem ${currentFont}`;
+    context.fillStyle = currentFontColor;
 
-    context.clearRect(0, 0, canvasWidth, 30);
+    context.clearRect(0, 0, canvasWidth, 60);
     context.fillText(topText.value, 30, 30);
 })
 
 bottomText.addEventListener("input", (event) => {
     const currentFont = getCurrentFont();
     const currentFontSize = getCurrentFontSize();
+    const currentFontColor = getCurrentFontColor();
 
     context.font = `${currentFontSize/10}rem ${currentFont}`;
+    context.fillStyle = currentFontColor;
 
     context.clearRect(0, canvasHeight-100, canvasWidth, canvasHeight);
     context.fillText(bottomText.value, 30, canvasHeight - 30);
